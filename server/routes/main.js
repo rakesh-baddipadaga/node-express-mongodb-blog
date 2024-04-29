@@ -61,17 +61,15 @@ post:id
 router.get('/post/:id', async (req,res)=>{
 
     try{
+        let slug=req.params.id;
+        const data = await Post.findById({_id: slug});
+
 
         const locals={
             title:data.title,
             description:"A bolg with node.j+express and mongdb"
         }
-
-        let slug=req.params.id;
-
-        const data = await Post.findById({_id: slug});
-
-        res.render('post', {locals,data, currentRoute: `/post/${slug}`});
+        res.render('post', {locals,data,currentRoute: `/post/${slug}`});
     } catch(err){
         console.log(err);
     }
@@ -91,7 +89,7 @@ router.post('/search', async (req,res)=>{
 
     try{
         const locals={
-            title:"Saerch",
+            title:"Search",
             description:"A bolg with node.js+express and mongdb"
         }
         let searchTerm= req.body.searchTerm;

@@ -172,6 +172,7 @@ img {
 .author {
   padding: 10px 0;
   text-align: center;
+  position: relative;
 }
 
 .author__heading {
@@ -183,6 +184,15 @@ img {
   font-size: var(--font-size-md);
   margin: 5px 0 40px 0;
 }
+
+
+.dashboard_btn {
+  position: absolute;
+  top: 10px; 
+  left: 10px; 
+}
+
+
 
 
 /* Home Article List */

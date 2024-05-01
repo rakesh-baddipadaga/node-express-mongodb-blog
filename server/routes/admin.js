@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const adminLayout = '../views/layouts/admin';
+const signinLayout = '../views/layouts/signin'
 const jwtSecret = process.env.JWT_SECRET;
 
 
@@ -34,13 +35,13 @@ const authMiddleware = (req, res, next) => {
 //Admin-Login PAge
 
 
-router.get('/admin', async (req, res) => {
+router.get('', async (req, res) => {
     try {
         const locals = {
             title: "Admin",
             description: "A bolg with node.js+express and mongdb"
         }
-        res.render('admin/login', { locals, layout: adminLayout });
+        res.render('admin/login', { locals, layout: signinLayout });
     } catch (err) {
         console.log(err);
     }
@@ -115,6 +116,7 @@ router.get('/add-post', authMiddleware, async (req, res) => {
         console.log(err);
     }
 });
+
 
 
 
@@ -199,7 +201,6 @@ router.put('/edit-post/:id', authMiddleware, async (req, res) => {
 //             console.log(err);
 //         }
 //     });
-
 
 
 

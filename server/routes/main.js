@@ -3,7 +3,7 @@ const router=express.Router();
 const Post= require('../models/post');
 
 //GET HOME
-router.get('', async (req,res)=>{
+router.get('/home', async (req,res)=>{
     try{
         const locals={
             title:"NBlog",
@@ -119,6 +119,14 @@ router.get('/about', (req, res) => {
     });
   });
 
+
+//Contact
+
+router.get('/contact',(req,res)=>{
+    res.render('contact',{
+        currentRoute:'/contact'
+    });
+});
 
 
 
